@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="login.css">
+  <title>Document</title>
+</head>
+<body>
+  <form method="post" action="" id="loginForm">
+    Email: <br>
+    <input type="email" name="email" value="">
+    <br>
+    Password: <br>
+    <input type="password" name="password" value="">
+    <br><br>
+    <input type="submit" value="Login">
+
+  </form>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+  <script>
+    $(function() {
+      $("#loginForm").validate({
+        rules: {
+          email: {
+            required: true,
+            email: true,
+          },
+          password: {
+            required: true,
+            minlength: 5,
+          }
+        },
+
+        messages: {
+          email: {
+            required: "Please enter a valid email address.",
+          },
+          password: {
+            required: "Please provide a password.",
+            minlength: "Password is too short. Minimum length is 5."
+          }
+        },
+
+        submitHandler: function(form) {
+          form.submit();
+        }
+      })
+    })
+  </script>
+</body>
+</html>
